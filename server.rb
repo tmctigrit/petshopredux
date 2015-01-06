@@ -7,6 +7,7 @@ set :bind, '0.0.0.0'
 enable :sessions
 
 require_relative 'lib/petshop.rb'
+require_relative 'config/environments.rb'
 
 # #
 # This is our only html view...
@@ -63,7 +64,7 @@ post '/signin' do
 
   # if password == user['password']
   #   headers['Content-Type'] = 'application/json'
-  
+
   #   # TODO: Set session[:user_id] so the server will remember this user has logged in
   #   $sample_user.to_json
   # else
@@ -89,14 +90,14 @@ end
 put '/shops/:shop_id/cats/:id/adopt' do
   headers['Content-Type'] = 'application/json'
   params = JSON.parse request.body.read
-  
+
   shop_id = params[:shop_id]
   id = params[:id]
 
   db = Petshop.create_db_connection('Petshop_Test')
   avail_cats = Petshop::CatsRepo.find_available(db, adopted)
-  avail_cats.to_json  
-  
+  avail_cats.to_json
+
   # TODO: Grab from database instead
   # RestClient.put("http://pet-shop.api.mks.io/shops/#{shop_id}/cats/#{id}",
   #   { adopted: true }, :content_type => 'application/json')
