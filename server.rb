@@ -23,6 +23,19 @@ get '/' do
   erb :index
 end
 
+#Create GET signup route
+get '/signup' do
+
+  erb :signup
+end
+
+#Create POST signup route
+post '/signup' do
+
+redirect to '/signup'
+end
+
+
 # #
 # ...the rest are JSON endpoints
 #
