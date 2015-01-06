@@ -11,6 +11,7 @@ gem 'rest-client'
 gem 'pry-byebug'
 
 # Active Record Gems
+# Rufino and Tricia were here
 gem 'activerecord', '~> 4.1.0'
 gem 'active_record_tasks', '~> 1.1.0'
 
