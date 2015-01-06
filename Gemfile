@@ -9,3 +9,8 @@ gem 'rest-client'
 
 # Testing
 gem 'pry-byebug'
+
+# Active Record Gems
+gem 'activerecord', '~> 4.1.0'
+gem 'active_record_tasks', '~> 1.1.0'
+
