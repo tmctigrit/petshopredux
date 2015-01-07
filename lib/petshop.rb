@@ -2,6 +2,9 @@ require 'pg'
 require 'json'
 require 'rest-client'
 
+# Connects to the User Class (< ActiveRecord::Base)
+require_relative 'models/user.rb'
+
 require_relative 'petshop/repos/cats_repo.rb'
 require_relative 'petshop/repos/dogs_repo.rb'
 require_relative 'petshop/repos/shops_repo.rb'
