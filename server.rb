@@ -7,7 +7,32 @@ set :bind, '0.0.0.0'
 enable :sessions
 
 require_relative 'lib/petshop.rb'
+
+
+
+## BEGIN PETSHOP ACTIVERECORD EXERCISE
 require_relative 'config/environments.rb'
+
+# Create GET signup route (load page)
+get '/signup' do
+  erb :signup
+end
+
+# Create POST signup route
+post '/signup' do
+  username = params[:username]
+  password = params[:password]
+
+  # Connect to config/environments.rb, which connects to table & populates it 
+  User.create(username: username, password: password)
+
+  # TODO: Make the validation messages appear
+
+  redirect to '/signup'
+end
+## END PETSHOP ACTIVERECORD EXERCISE
+
+
 
 # #
 # This is our only html view...
@@ -23,17 +48,6 @@ get '/' do
   erb :index
 end
 
-#Create GET signup route
-get '/signup' do
-
-  erb :signup
-end
-
-#Create POST signup route
-post '/signup' do
-
-redirect to '/signup'
-end
 
 
 # #
