@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :username, :length => 4..12
   validates :password, :presence => {:message => "Password can't be blank."}
   validates :password, :length => { :minimum => 6, :message => "Must be at least 6 characters."}
-  # validates :password, format: {with: /^[^-]\w+$/ }
+  validates :password, :format => { with: /\d+[a-zA-Z]+|[a-zA-Z]+\d+/ }
 
   ## WIP
   #validates :password, :format => { with: /\A[a-zA-Z]+\z/, :message => "Must have one capital and one number."}
